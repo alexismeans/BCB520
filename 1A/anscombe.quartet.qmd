@@ -37,6 +37,7 @@ tidy_anscombe_summary <- tidy_anscombe %>%
   summarise(across(.cols = everything(),
                    .fns = lst(min,max,median,mean,sd,var),
                    .names = "{col}_{fn}"))
+
 #> `summarise()` ungrouping output (override with `.groups` argument)
 
 vars<-c("set", "x_mean", "x_var",  "y_mean", "y_var")
