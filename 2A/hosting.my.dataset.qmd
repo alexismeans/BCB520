@@ -1,0 +1,105 @@
+---
+title: "Describing my Dataset"
+format: html
+editor: visual
+code-fold: TRUE
+---
+
+## My Data
+
+The data set that I will be using will be vegetation monitoring data that I collected in the summer of 2024 for my project. I have multiple databases that are linked with varying information. Ultimately, my multiple databases will be used to create a nutritional landscape map of my study area to demonstrate areas of varying nutritional quality.
+
+## Data Collection 
+
+My data contains multiple linked databases with varying information about unique species/phenology plant pairs in each transect sampled throughout the course of my field season. These databases include:
+
+-   The different vegetation communities sampled
+
+-   The species identified in each of my transects as well as their phenology
+
+-   The percent aerial cover each of these unique species/phenology plants provide within each quadrat
+
+-   The weight of clipped/unclipped biomass for each of the unique plants.
+
+Eventually I will have quality information for each of these unique pairs as well, but that analysis is still in progress.
+
+## Importing my Data
+
+Each of my databases are saved as separate csv files. To load them in, I set my working directory to file containing the database locations and used the base R function `read.csv` to load each of the files. I also save each of the databases to a new object that I will be able to call on later. To check that each of my databases has loaded correctly I used the `head` function. To better understand how the information is saved within each of my databases, I used the `glimpse` function within *tidyverse*.
+
+```{r}
+#| echo: TRUE
+#| warning: FALSE
+
+# Set Working Directory
+setwd("C:/Users/Alexis Means/Documents/School/RDS/final.project/")
+
+# Load in each database and assign them to an object
+biomass <- read.csv("processed.data/biomass_clean.csv")
+comp <- read.csv("processed.data/composition_clean.csv")
+pheno <- read.csv("processed.data/phenology_clean.csv")
+plants <- read.csv("processed.data/plant_list_clean.csv")
+quality <- read.csv("processed.data/quality_clean.csv")
+transect <-read.csv("processed.data/transect_clean.csv")
+
+# Load tidyverse
+library(tidyverse)
+
+```
+
+### Biomass
+
+```{r}
+# Check that each database has been loaded correctly 
+# Use glimpse command to summarize each of my dataframes
+head(biomass)
+glimpse(biomass)
+```
+
+### Composition
+
+```{r}
+head(comp)
+glimpse(comp)
+```
+
+### Phenology
+
+```{r}
+head(pheno)
+glimpse(pheno)
+```
+
+### Species List
+
+```{r}
+head(plants)
+glimpse(plants)
+```
+
+### Quality
+
+```{r}
+head(quality)
+glimpse(quality)
+
+```
+
+### Transects
+
+```{r}
+head(transect)
+glimpse(transect)
+```
+
+## Describing my Data
+
+In combination, these data sets create a multidimensional table with varying information about the different species observed within my transects - ultimately the item being observed in each of these tables is the combination of species ID and the phenology stage. From that we are using multiple attributes to describe this unique species stage ID. The attributes are described as quantitative values such as the biomass weight, the percent aerial cover, and the nutritional quality of each unique combination. There are a few other attributes used to further describe this data that is categorical such of the vegetation community it was observed within as well as the season that it was observed. Eventually this data will be converted into spatial data, but for now working with it to create summary statistics it is being used as a table. I included a table that describes each of the attributes described within my tables. Some of them are repetitive, so I have only described them once. This was a great exercise to make me realize that my data is no where near as tidy as I thought I had made it.
+
+```{r}
+#| echo: TRUE
+
+table <- read.csv("C:/Users/Alexis Means/Documents/School/BCB520/2A/attributes.csv")
+
+knitr::kable(table)
+```

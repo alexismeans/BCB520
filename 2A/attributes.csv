@@ -1,0 +1,22 @@
+﻿Attribute,Type,Note
+DryWeight,Quantitative,This measurement tells us what the weight of dry biomass is for each specific observation
+PlotID,Categorical,This descriptor is a unique ID that tells us which randomized point we sampled 
+Quadrat,Categorical,"There are 5 quadrats that we sample for each quadrat (20,40,60,80,100)"
+spp_code,Categorical,"These are unique codes that describe the family, genius and species for every item observed"
+pheno,Categorical,"Each species is assigned a growth stage when we observe it - New, Budding, Flowering, Fruiting, Mature or Cured (N, B, FL, FR, M, C)"
+PVT,Categorical,"This number describes the vegetation community that was being sampled, we have 5 total for the study area, it is used as part of the descriptor for each plotID"
+composition_ID,Categorical,"This unique ID helps link the biomass and aerial percent cover to specific plots and quadrats, rather than just the species and phenology stage"
+percent,Quantitative,This measurement tells us the percent cover that each composition_id occupies within a 1x1m quadrat
+spp_id,Categorical,This unique ID is slightly more broad and will be used to identify species/phenology combinations within each vegetation type as well as the season
+Family,Categorical,This will be used to group quality data if we do not have enough information to determine the quality down to the smaller scale (genus)
+Genus,Categorical,This will be used to group quality data if we do not have enough information to determine the quality down to the smaller scale (spp)
+Spp,Categorical,This will be used to group quality data if we do not have enough information to determine the quality down to the smaller scale (phenological stage)
+CommonName,Categorical,"This is another identifier for each species, it will likely not be used within the analysis so it could be removed"
+Duration,Categorical,This is another category I may use to group quality data based on the growth duration of each species
+Status,Categorical,Each species is categorized as native or invasive
+Season,Categorical,"Our observations are grouped based on the date that they were sampled (Spring, Summer and Fall) to observe the changes in nutritional quality"
+Date,Categorical,This keeps track of the day that each observation was sampled
+Aspect,Categorical,Described the direction the hill was facing that each of our transects had been sampled on
+Elev,Quantitative,Describes the elevation that each of the transects was sampled at
+Lat/Long,Categorical,"Each of the lat/long pairs plots the beginning, middle and end of each of the transects "
+Moved,Categorical,Tells us whether the orginal randomized point had to be moved 
